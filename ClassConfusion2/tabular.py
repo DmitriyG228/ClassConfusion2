@@ -32,7 +32,7 @@ def get_names(x:TabDataLoader, idxs, mc=None, varlist=None, li=None):
   "Gets setup for tabs"
   boxes = len(idxs)
   cols = math.ceil(math.sqrt(boxes))
-  row = math.ceil(boxes/cols)
+  rows = math.ceil(boxes/cols)
   cats = x.cat_names.filter(lambda x: '_na' not in x)
   tbnames = cats + x.cont_names if varlist is None else varlist
   tbnames = list(tbnames) #Colab doesn't like `L`'s
