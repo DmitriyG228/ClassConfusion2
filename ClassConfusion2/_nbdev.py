@@ -2,12 +2,12 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"TabDataLoader.get_losses": "01_tabular.ipynb",
-         "TfmdDL.get_losses": "02_vision.ipynb",
+index = {"TabDataLoader.get_losses": "01_data.ipynb",
+         "TfmdDL.get_losses": "01_data.ipynb",
          "ClassConfusion": "03_class_confusion.ipynb"}
 
-modules = ["tabular.py",
-           "vision.py",
+modules = ["data.py",
+           "plot.py",
            "class_confusion.py"]
 
 doc_url = "https://muellerzr.github.io/ClassConfusion2/"
