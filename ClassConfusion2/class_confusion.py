@@ -6,6 +6,7 @@ __all__ = ['ClassConfusion']
 from .tabular import *
 from .vision import *
 
+from fastai2.interpret import ClassificationInterpretation
 from google.colab import widgets
 from tqdm import tqdm
 
