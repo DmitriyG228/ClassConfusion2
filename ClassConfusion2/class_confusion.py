@@ -5,7 +5,7 @@ __all__ = ['ClassConfusion']
 # Cell
 from .tabular import *
 from .vision import *
-
+import itertools
 from fastai2.interpret import ClassificationInterpretation
 from google.colab import widgets
 from tqdm import tqdm
