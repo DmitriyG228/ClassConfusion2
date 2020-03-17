@@ -86,7 +86,7 @@ def _plot(x:TfmdDL, interp, combs, combs_l, tab, i=None, boxes=None, cols=None, 
     rows = math.ceil(boxes/cols)
   fig, ax = plt.subplots(rows, cols, figsize=figsize)
 
-  [axi.set_axis_off() for axi in ax.ragel()]
+  [axi.set_axis_off() for axi in ax.ravel()]
   for j, idx in enumerate(combs_l):
     if boxes < y+1 or y > ranges[i]:
       break
