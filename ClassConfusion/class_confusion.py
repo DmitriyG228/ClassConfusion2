@@ -92,6 +92,7 @@ def _plot(x:TfmdDL, interp, combs, combs_l, tab, i=None, boxes=None, cols=None, 
       break
     row = (int)(y/cols)
     col = y % cols
+    print(idx)
     img, lbl = x.dataset[idx]
     fn = x.items[idx]
     fn = re.search('([^/*]+)_\d+.*$', str(fn)).group(0)
