@@ -36,7 +36,7 @@ def get_names(x:TabDataLoader, idxs, mc=None, varlist=None, li=None):
   cats = x.cat_names.filter(lambda x: '_na' not in x)
   tbnames = cats + x.cont_names if varlist is None else varlist
   tbnames = list(tbnames) #Colab doesn't like `L`'s
-  return [tbnames, boxes, cols, rows, _]
+  return [tbnames, boxes, cols, rows, None]
 
 # Cell
 @typedispatch

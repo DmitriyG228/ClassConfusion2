@@ -32,7 +32,7 @@ def get_names(x:TfmdDL, idxs, mc=None, varlist=None, li=None):
       if x[0:2] == li[y]:
         ranges.append(x[2])
         tbnames.append(f'{x[0]} | {x[1]}')
-  return [tbnames, boxes, _, _, ranges]
+  return [tbnames, boxes, None, None, ranges]
 
 # Cell
 @typedispatch
