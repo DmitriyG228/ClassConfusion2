@@ -3,8 +3,8 @@
 __all__ = ['ClassConfusion']
 
 # Cell
-from .tabular import *
-from .vision import *
+from .tabular import get_losses, get_names, plot
+from .vision import get_losses, get_names, plot
 import itertools
 from fastai2.interpret import ClassificationInterpretation
 from google.colab import widgets
