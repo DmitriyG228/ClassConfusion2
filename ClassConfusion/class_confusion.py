@@ -91,12 +91,12 @@ def _plot(x:TfmdDL, interp, combs, combs_l, tab, i=None, boxes=None, cols=None, 
     if boxes < y+1 or y > ranges[i]:
       break
     row = (int)(y/cols)
-    col = x % cols
+    col = y % cols
     img, lbl = x.dataset[idx]
     fn = x.items[idx]
     fn = re.search('([^/*]+)_\d+.*$', str(fn)).group(0)
     img.show(ctx=ax[row,col])
-    x+=1
+    y+=1
   plt.show(fig)
   plt.tight_layout()
 
