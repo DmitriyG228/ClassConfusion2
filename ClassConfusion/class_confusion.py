@@ -22,7 +22,7 @@ def _get_names(x:TabDataLoader, idxs, mc=None, varlist=None, li=None):
   rows = math.ceil(boxes/cols)
   tbnames = x.cat_names.filter(lambda x: '_na' not in x) + x.cont_names if varlist is None else varlist
   tbnames = list(tbnames)
-  return [tbnames, boxes, cols, rows, _]
+  return [tbnames, boxes, cols, rows, None]
 
 # Cell
 @typedispatch
@@ -35,7 +35,7 @@ def _get_names(x:TfmdDL, idxs, mc=None, varlist=None, li=None):
       if x[0:2] == li[y]:
         ranges.append(x[2])
         tbnames.append(f'{x[0]} | {x[1]}')
-  return [tbnames, boxes, _, _, ranges]
+  return [tbnames, boxes, None, None, ranges]
 
 # Cell
 @patch
