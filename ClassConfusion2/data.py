@@ -4,6 +4,7 @@ __all__ = []
 
 # Cell
 from fastai2.tabular.all import *
+from fastai2.vision.all import *
 
 # Cell
 import warnings

@@ -3,7 +3,8 @@
 __all__ = []
 
 # Cell
-from .data import *
+from fastai2.tabular.all import *
+from fastai2.vision.all import *
 
 # Cell
 @typedispatch
