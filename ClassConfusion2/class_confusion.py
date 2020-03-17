@@ -24,7 +24,7 @@ class ClassConfusion():
     _, tl_idx = interp.top_losses(len(interp.losses))
     idxs = dl.get_losses(tl_idx, interp.preds, combs)
     mc = interp.most_confused()
-    tbnames, boxes, cols, rows, ranges = self.get_names(x=dl, idxs=idxs, mc=mc, varlist=varlist, li=combs)
+    tbnames, boxes, cols, rows, ranges = self._get_names(x=dl, idxs=idxs, mc=mc, varlist=varlist, li=combs)
     tb = widgets.TabBar(tbnames)
     self._create_tabs(tb, tbnames, dl, interp, idxs, combs, boxes, cols, rows, ranges, figsize, cut_off)
 
@@ -37,4 +37,4 @@ class ClassConfusion():
       pbar.update(1)
 
   def _get_names(self, x, idxs, mc, varlist, li):
-    return _get_names(x, idxs, mc, varlist, li)
+    return get_names(x, idxs, mc, varlist, li)
