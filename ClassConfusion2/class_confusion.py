@@ -3,8 +3,8 @@
 __all__ = ['ClassConfusion']
 
 # Cell
-from class_confusion.tabular import *
-from class_confusion.vision import *
+from .tabular import *
+from .vision import *
 
 from google.colab import widgets
 from tqdm import tqdm
@@ -23,7 +23,7 @@ class ClassConfusion():
     _, tl_idx = interp.top_losses(len(interp.losses))
     idxs = dl.get_losses(tl_idx, interp.preds, combs)
     mc = interp.most_confused()
-    tbnames, boxes, cols, rows, ranges = self._get_names(x=dl, idxs=idxs, mc=mc, varlist=varlist, li=combs)
+    tbnames, boxes, cols, rows, ranges = self.get_names(x=dl, idxs=idxs, mc=mc, varlist=varlist, li=combs)
     tb = widgets.TabBar(tbnames)
     self._create_tabs(tb, tbnames, dl, interp, idxs, combs, boxes, cols, rows, ranges, figsize, cut_off)
 
@@ -32,7 +32,7 @@ class ClassConfusion():
     with tqdm(total=len(tbnames)) as pbar:
       for i, tab in enumerate(tbnames):
         with tb.output_to(i):
-          _plot(dl, interp, idxs, combs, tab, i, boxes, cols, rows, ranges, figsize, cut_off)
+          plot(dl, interp, idxs, combs, tab, i, boxes, cols, rows, ranges, figsize, cut_off)
       pbar.update(1)
 
   def _get_names(self, x, idxs, mc, varlist, li):

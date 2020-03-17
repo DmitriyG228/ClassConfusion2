@@ -28,7 +28,7 @@ def get_losses(x:TabDataLoader, tl_idx, preds, combs):
 
 # Cell
 @typedispatch
-def _get_names(x:TabDataLoader, idxs, mc=None, varlist=None, li=None):
+def get_names(x:TabDataLoader, idxs, mc=None, varlist=None, li=None):
   "Gets setup for tabs"
   boxes = len(idxs)
   cols = math.ceil(math.sqrt(boxes))
@@ -40,7 +40,7 @@ def _get_names(x:TabDataLoader, idxs, mc=None, varlist=None, li=None):
 
 # Cell
 @typedispatch
-def _plot(x:TfmdDL, interp, combs, combs_l, tab, i=None, boxes=None, cols=None, rows=None, ranges=None, figsize=(12,12), cut_off=100):
+def plot(x:TfmdDL, interp, combs, combs_l, tab, i=None, boxes=None, cols=None, rows=None, ranges=None, figsize=(12,12), cut_off=100):
   "Plot tabular graphs"
   y = 0
   if ranges[i] < boxes:

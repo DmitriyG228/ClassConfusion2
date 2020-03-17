@@ -23,7 +23,7 @@ def get_losses(x:TfmdDL, tl_idx, preds, combs):
 
 # Cell
 @typedispatch
-def _get_names(x:TfmdDL, idxs, mc=None, varlist=None, li=None):
+def get_names(x:TfmdDL, idxs, mc=None, varlist=None, li=None):
   ranges = []
   tbnames = []
   boxes = int(input('Please enter a value for `k`, or the top # images you will see: '))
