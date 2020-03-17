@@ -33,3 +33,32 @@ def get_names(x:TfmdDL, idxs, mc=None, varlist=None, li=None):
         ranges.append(x[2])
         tbnames.append(f'{x[0]} | {x[1]}')
   return [tbnames, boxes, _, _, ranges]
+
+# Cell
+@typedispatch
+def plot(x:TfmdDL, interp, combs, combs_l, tab, i=None, boxes=None, cols=None, rows=None, ranges=None, figsize=(12,12), cut_off=100):
+  "Plot tabular graphs"
+  y = 0
+  if ranges[i] < boxes:
+    cols = math.ceil(math.sqrt(ranges[i]))
+    rows = math.ceil(ranges[i]/cols)
+  if ranges[i]<4 or boxes < 4:
+    cols, rows = 2, 2
+  else:
+    cols = math.ceil(math.sqrt(boxes))
+    rows = math.ceil(boxes/cols)
+  fig, ax = plt.subplots(rows, cols, figsize=figsize)
+
+  [axi.set_axis_off() for axi in ax.ragel()]
+  for j, idx in enumerate(combs_l):
+    if boxes < y+1 or y > ranges[i]:
+      break
+    row = (int)(y/cols)
+    col = x % cols
+    img, lbl = x.dataset[idx]
+    fn = x.items[idx]
+    fn = re.search('([^/*]+)_\d+.*$', str(fn)).group(0)
+    img.show(ctx=ax[row,col])
+    x+=1
+  plt.show(fig)
+  plt.tight_layout()
